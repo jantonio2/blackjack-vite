@@ -3,7 +3,7 @@ import _ from 'underscore'
 // This function creates a new deck
 export const createDeck = (types, specials) => {
 
-  deck = []
+  let deck = []
 
   for ( let i = 2; i <= 10; i++ ){
     for ( let type of types ) {

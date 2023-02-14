@@ -1,17 +1,5 @@
 import { createDeck } from './usecases/create-deck'
 
-/*
-  2C = Two of Clovers
-  2D = Two of Diamonds
-  2H = Two of Hearts
-  2S = Two of Swords
-*/
-
-// Self invoking function
-// (function() {
-
-// })()
-
 // const myModule = (() => {
 (() => {
 
@@ -21,8 +9,6 @@ import { createDeck } from './usecases/create-deck'
   const types = [ 'C', 'D', 'H', 'S' ],
         specials = [ 'A', 'J', 'Q', 'K' ]
 
-  // let playerPoints = 0,
-  //     computerPoints = 0
   let playersPoints = []
 
   // References to HTML elements
@@ -38,7 +24,7 @@ import { createDeck } from './usecases/create-deck'
   // This function initializes the game
   const initializeGame = ( numPlayers = 1 ) => {
 
-    deck = createDeck()
+    deck = createDeck(types, specials)
     playersPoints = []
 
     for (let i = 0; i <= numPlayers; i++) {
@@ -55,8 +41,6 @@ import { createDeck } from './usecases/create-deck'
     btnStop.disabled = false
 
   }
-
-  createDeck()
 
   // This function allows to take a card
   const askForCard = () => {
