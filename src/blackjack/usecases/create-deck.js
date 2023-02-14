@@ -1,7 +1,18 @@
 import _ from 'underscore'
 
-// This function creates a new deck
+
+/**
+ * This function creates a new deck   
+ * @param {Array<String>} types Example: [ 'C', 'D', 'H', 'S' ]
+ * @param {Array<String>} specials Example: [ 'A', 'J', 'Q', 'K' ]
+ * @returns {Array<String>} return a new deck
+ */
+
+
 export const createDeck = (types, specials) => {
+
+  if ( !types || types.length === 0 ) throw new Error('Types are required')
+  if ( !specials || specials.length === 0 ) throw new Error('Specials are required')
 
   let deck = []
 
