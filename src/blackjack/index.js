@@ -1,4 +1,6 @@
 import { createDeck } from './usecases/create-deck'
+import { requestCard } from './usecases/request-card'
+import { cardValue } from './usecases/card-value'
 
 // const myModule = (() => {
 (() => {
@@ -39,34 +41,6 @@ import { createDeck } from './usecases/create-deck'
 
     btnAskFor.disabled = false
     btnStop.disabled = false
-
-  }
-
-  // This function allows to take a card
-  const askForCard = () => {
-
-    if(deck.length === 0) {
-
-      throw 'There aren\'t cards';
-
-    } 
-
-    let i = Math.floor(Math.random() * deck.length);
-    const card = deck[i];
-    deck = deck.filter((element) => element !== deck[i]);
-
-    return card
-
-  }
-
-  // This function return the value of the card
-  const cardValue = ( card ) => {
-
-    const value = card.substring( 0, card.length - 1 )
-
-    return ( isNaN( value ) ) 
-      ? ( value === 'A' ) ? 11 : 10
-      : value * 1
 
   }
 
@@ -115,7 +89,8 @@ import { createDeck } from './usecases/create-deck'
 
     do {
 
-      const card = askForCard()
+      const { card, newDeck } = requestCard(deck)
+      deck = newDeck
 
       computerPoints = collectPoints( card, playersPoints.length - 1 )
       createCard( card, playersPoints.length - 1 )
@@ -133,7 +108,8 @@ import { createDeck } from './usecases/create-deck'
   // Events
   btnAskFor.addEventListener('click', () => {
     
-    const card = askForCard()
+    const { card, newDeck } = requestCard(deck)
+    deck = newDeck
     const playersPoints = collectPoints( card, 0 )
 
     createCard( card, 0 )
