@@ -1,7 +1,4 @@
-import { createDeck } from './usecases/create-deck'
-import { requestCard } from './usecases/request-card'
-import { cardValue } from './usecases/card-value'
-
+import { createDeck, requestCard, cardValue } from './usecases'
 // const myModule = (() => {
 (() => {
 
