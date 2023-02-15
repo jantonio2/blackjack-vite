@@ -51,7 +51,7 @@ import { createDeck, requestCard, cardValue } from './usecases'
 
   }
 
-  // This function creates the card a show it in the HTML
+  // This function creates the card and shows it in the HTML
   const createCard = ( card, turn ) => {
 
     const imgCard = document.createElement('img')
